@@ -47,8 +47,7 @@ for DATASET in DATASETS:
     X_test = np.expand_dims(X_test, axis=-1)
     print("Test shape:", X_test.shape)
     y_probs = model.predict(X_test, verbose=0)
-    threshold = 0.38
-    y_pred = (y_probs[:,1] >= threshold).astype(int)
+    y_pred = np.argmax(y_probs, axis=1)
     accuracy = accuracy_score(y_test, y_pred)
     auc = roc_auc_score(y_test, y_probs[:,1])
     print("Accuracy:", round(accuracy,4))
