@@ -1,3 +1,4 @@
+from imblearn.over_sampling import SMOTE
 from pathlib import Path
 import json
 import numpy as np
