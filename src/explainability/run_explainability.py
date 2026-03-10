@@ -12,8 +12,8 @@ from .grad_cam import make_gradcam_heatmap
 from .saliency import compute_saliency
 from .shap_explain import compute_shap
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-MODEL_PATH = PROJECT_ROOT / "src/models/AUSTRALIAN_model.keras"
-DATA_PATH = PROJECT_ROOT / "data/processed/AUSTRALIAN_test_images.npy"
+MODEL_PATH = PROJECT_ROOT / "src/models/HMEQ_model.keras"
+DATA_PATH = PROJECT_ROOT / "data/processed/HMEQ_test_images.npy"
 print("Loading model from:", MODEL_PATH)
 print("Loading data from:", DATA_PATH)
 model = tf.keras.models.load_model(MODEL_PATH)
@@ -46,3 +46,6 @@ shap_sample = sample
 print("\nRunning SHAP explanation...")
 shap_values = compute_shap(model, background, shap_sample)
 shap.image_plot(shap_values, shap_sample)
+print("SHAP max:", np.max(shap_values))
+print("SHAP min:", np.min(shap_values))
+print("SHAP mean:", np.mean(np.abs(shap_values)))
