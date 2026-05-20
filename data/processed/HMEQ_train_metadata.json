@@ -1,0 +1,15 @@
+{
+    "features": [
+        "LOAN",
+        "MORTDUE",
+        "VALUE",
+        "JOB",
+        "DEROG",
+        "DELINQ",
+        "CLAGE",
+        "NINQ",
+        "DEBTINC"
+    ],
+    "B": 8,
+    "D": 9
+}
